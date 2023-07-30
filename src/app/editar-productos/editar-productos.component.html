@@ -1,0 +1,58 @@
+<app-encabezado-administrador></app-encabezado-administrador>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title text-center">Productos CampFruver</h3>
+        </div>
+        <div class="card-body">
+          <form (ngSubmit)="onSubmit()" #productoForm="ngForm">
+            <fieldset class="form-group">
+              <div class="mb-3 ">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" required
+                  [(ngModel)]="producto.nombre" />
+              </div>
+            </fieldset>
+            <fieldset class="form-group">
+              <div class="mb-3 ">
+                <label for="direccion" class="form-label">Detalle</label>
+                <input type="text" class="form-control" id="direccion" name="direccion" required
+                  [(ngModel)]="producto.detalle" />
+              </div>
+            </fieldset>
+            <fieldset class="form-group">
+              <div class="mb-3 ">
+                <label for="email" class="form-label">Cantidad</label>
+                <input type="number" class="form-control" id="cantidad" name="cantidad" required
+                  [(ngModel)]="producto.cantidad" />
+              </div>
+            </fieldset>
+            <fieldset class="form-group">
+              <div class="mb-3 ">
+                <label for="precio" class="form-label">Precio</label>
+                <input type="text" class="form-control" id="precio" name="precio" required
+                  [(ngModel)]="producto.precio" />
+              </div>
+            </fieldset>
+            <fieldset class="form-group">
+              <div class="mb-3 ">
+                <label for="precio" class="form-label">Imagen</label>
+                <div class="input-group mb-3">
+                  <input type="file" class="form-control" id="imagen" name="imagen" [(ngModel)]="producto.imagen">
+                </div>
+              </div>
+            </fieldset>
+            <fieldset class="form-group">
+              <div class="d-grid">
+                <button type="submit" class="btn btn-primary" [disabled]="!productoForm.form.valid">Actualizar</button>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-pie-administrador></app-pie-administrador>

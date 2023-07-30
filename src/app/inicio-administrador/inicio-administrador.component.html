@@ -1,0 +1,56 @@
+<app-encabezado-administrador></app-encabezado-administrador>
+<div class="container">
+  <div class="text-center">
+    <h1>Productos CampFruver</h1>
+  </div>
+  <form class="form-inline">
+    <td>
+      <fieldset class="form-group col-sm-1 ">
+        <a class="btn btn-success " [routerLink]="['/productos/agregar']">+</a>
+      </fieldset>
+    </td>
+
+    <td>
+      <fieldset class="form-group col-sm-1 p-2">
+        <a class="btn btn-warning " [routerLink]="['/pedidos']">Pedidos</a>
+      </fieldset>
+    </td>
+  </form>
+
+
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Detalle</th>
+        <th>Cantidad</th>
+        <th>Precio</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let producto of productos | async">
+        <td>{{ producto.idProducto }}</td>
+        <td>{{ producto.nombre }}</td>
+        <td>{{ producto.detalle }}</td>
+        <td>{{ producto.cantidad }}</td>
+        <td>{{ producto.precio }}$</td>
+        <td>
+          <fieldset class="form-group col-sm-1">
+            <a class="btn btn-primary" [routerLink]="['/productos/editar/', producto.idProducto]">Editar</a>
+          </fieldset>
+        </td>
+        <td>
+          <fieldset class="form-group col-sm-1">
+            <a class="btn btn-danger" (click)="borrarProducto(producto.idProducto)">Borrar</a>
+          </fieldset>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+<app-pie-administrador></app-pie-administrador>

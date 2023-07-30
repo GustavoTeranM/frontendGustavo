@@ -1,0 +1,46 @@
+<app-encabezado></app-encabezado>
+<div class="container" style="max-width: 500px;">
+  <div class="modal-content rounded-4 shadow">
+    <div>
+      <h1 class="text-center py-3">Formulario de compra</h1>
+    </div>
+    <div class="modal-body p-5 pt-0">
+      <form (ngSubmit)="comprar()" #FormCompra="ngForm">
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control  rounded-3" id="cliente" placeholder="Nombre" name="cliente" required
+            [(ngModel)]="pedido.cliente">
+          <label>Cliente</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control rounded-3" id="correo" placeholder="Correo" name="correo" required
+            [(ngModel)]="pedido.correo">
+          <label>Correo</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control rounded-3" id="direccion" placeholder="Dirección" name="direccion"
+            required [(ngModel)]="pedido.direccion">
+          <label>Dirección</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control rounded-3" id="producto" required placeholder="Producto"
+            name="producto" required [(ngModel)]="pedido.producto">
+          <label>Producto</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="number" class="form-control rounded-3" id="cantidad" name="cantidad" required
+            [(ngModel)]="pedido.cantidad">
+          <label>Cantidad</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="number" class="form-control rounded-3" id="precio" name="precio" required
+            [(ngModel)]="pedido.precio">
+          <label>Precio</label>
+        </div>
+        <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit"
+          [disabled]="!FormCompra.form.valid">Comprar</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<app-pie></app-pie>

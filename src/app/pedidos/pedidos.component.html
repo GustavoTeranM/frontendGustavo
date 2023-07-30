@@ -1,0 +1,38 @@
+<app-encabezado-administrador></app-encabezado-administrador>
+<div class="container py-5">
+  <div class="text-center">
+    <h1>Pedidos CampFruver</h1>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Cliente</th>
+        <th>Correo</th>
+        <th>Dirección</th>
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th>Precio</th>
+        <th>Opción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pedido of pedidos | async">
+        <td>{{ pedido.idPedido }}</td>
+        <td>{{ pedido.cliente }}</td>
+        <td>{{ pedido.correo }}</td>
+        <td>{{ pedido.direccion }}</td>
+        <td>{{ pedido.producto }}</td>
+        <td>{{ pedido.cantidad }}</td>
+        <td>{{ pedido.precio }}</td>
+        <td>
+          <fieldset class="form-group col-sm-1">
+            <a class="btn btn-danger" (click)="borrarPedido(pedido.idPedido)">Borrar</a>
+          </fieldset>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+<app-pie-administrador></app-pie-administrador>
